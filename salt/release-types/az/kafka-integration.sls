@@ -1,6 +1,6 @@
 {%- set service_type="kafka-integration-service" -%}
 {%- set tstamp = salt["cmd.run"]("date +%Y%M%d%H%M%S") -%}
-{%- set nexus_url="20.172.215.201:8081" -%}
+{%- set nexus_url="40.117.124.249:8081" -%}
 
 #include:
 #  - kafka-client-cert
