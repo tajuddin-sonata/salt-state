@@ -78,11 +78,11 @@ copy_nexus_service_jar:
         - cwd: /opt/sonata/kafka-integration-service/
         - name: |
             curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/az/kafka-integration-service/service.zip
-            rm -rf service.jar version.txt
+            rm -rf helloworld.jar version.txt
             unzip -o service.zip
-            chown {{ service_type }}:{{service_type}} /opt/sonata/kafka-integration-service/service.jar
+            chown {{ service_type }}:{{service_type}} /opt/sonata/kafka-integration-service/helloworld.jar
             chown {{ service_type }}:{{service_type}} /opt/sonata/kafka-integration-service/version.txt
-            chmod 500 /opt/sonata/kafka-integration-service/service.jar
+            chmod 500 /opt/sonata/kafka-integration-service/helloworld.jar
             chmod 644 /opt/sonata/kafka-integration-service/version.txt
             systemctl restart {{ service_type }}
 

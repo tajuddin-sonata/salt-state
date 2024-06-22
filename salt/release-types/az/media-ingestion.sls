@@ -63,11 +63,11 @@ copy_nexus_service_jar:
         - cwd: /opt/sonata/media-ingestion/
         - name: |
             curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/az/media-ingestion/service.zip
-            rm -rf service.jar version.txt
+            rm -rf helloworld.jar version.txt
             unzip -o service.zip
-            chown {{ service_type }}:{{service_type}} /opt/sonata/{{ service_type }}/service.jar
+            chown {{ service_type }}:{{service_type}} /opt/sonata/{{ service_type }}/helloworld.jar
             chown {{ service_type }}:{{service_type}} /opt/sonata/{{ service_type }}/version.txt
-            chmod 500 /opt/sonata/{{ service_type }}/service.jar
+            chmod 500 /opt/sonata/{{ service_type }}/helloworld.jar
             chmod 644 /opt/sonata/{{ service_type }}/version.txt
             systemctl restart {{ service_type }}
 
