@@ -18,7 +18,7 @@ install_java_kafka_integration_service:
         tar xvf openjdk-21.0.1_linux-x64_bin.tar.gz
         mv jdk-21.0.1/ /opt/jdk
         chmod -R 777 /opt/jdk
-        alternatives --install /usr/bin/java java /opt/jdk/bin/java 1
+        update-alternatives --install /usr/bin/java java /opt/jdk/bin/java 1
 
 kafa_integration_user:
   group.present:

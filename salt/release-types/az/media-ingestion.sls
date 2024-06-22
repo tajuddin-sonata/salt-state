@@ -15,7 +15,7 @@ install_java_media_ingestion:
         tar xvf openjdk-18.0.2_linux-x64_bin.tar.gz
         mv jdk-18.0.2/ /opt/jdk
         chmod -R 777 /opt/jdk
-        alternatives --install /usr/bin/java java /opt/jdk/bin/java 1
+        update-alternatives --install /usr/bin/java java /opt/jdk/bin/java 1
 
 media_ingestion_user:
   group.present:
