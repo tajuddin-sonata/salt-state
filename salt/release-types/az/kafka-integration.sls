@@ -14,7 +14,7 @@ install_java_kafka_integration_service:
   cmd.run: 
     - cwd: /tmp
     - name: |
-        curl -s http://{{ nexus_url }}/repository/packages/openjdk-21.0.1_linux-x64_bin.tar.gz?timestamp={{ tstamp }} --output /tmp/openjdk-21.0.1_linux-x64_bin.tar.gz
+        curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/openjdk-21.0.1_linux-x64_bin.tar.gz
         tar xvf openjdk-21.0.1_linux-x64_bin.tar.gz
         mv jdk-21.0.1/ /opt/jdk
         chmod -R 777 /opt/jdk
@@ -77,7 +77,7 @@ copy_nexus_service_jar:
   cmd.run:
         - cwd: /opt/sonata/kafka-integration-service/
         - name: |
-            curl -s http://{{ nexus_url }}/repository/packages/az/kafka-integration-service/service.zip?timestamp={{ tstamp }} --output /opt/sonata/kafka-integration-service/service.zip
+            curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/az/kafka-integration-service/service.zip
             rm -rf service.jar version.txt
             unzip -o service.zip
             chown {{ service_type }}:{{service_type}} /opt/sonata/kafka-integration-service/service.jar

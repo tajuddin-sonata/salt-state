@@ -11,7 +11,7 @@ install_java_media_ingestion:
   cmd.run: 
     - cwd: /tmp
     - name: |
-        curl -s http://{{ nexus_url }}/repository/packages/openjdk-18.0.2_linux-x64_bin.tar.gz?timestamp={{ tstamp }} --output /tmp/openjdk-17.0.2_linux-x64_bin.tar.gz
+        curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/openjdk-18.0.2_linux-x64_bin.tar.gz
         tar xvf openjdk-18.0.2_linux-x64_bin.tar.gz
         mv jdk-18.0.2/ /opt/jdk
         chmod -R 777 /opt/jdk
@@ -62,7 +62,7 @@ copy_nexus_service_jar:
   cmd.run:
         - cwd: /opt/sonata/media-ingestion/
         - name: |
-            curl -s http://{{ nexus_url }}/repository/packages/az/media-ingestion/service.zip?timestamp={{ tstamp }} --output /opt/sonata/media-ingestion/service.zip
+            curl -v -u deployment:deployment123 -O http://{{ nexus_url }}/repository/packages/az/media-ingestion/service.zip
             rm -rf service.jar version.txt
             unzip -o service.zip
             chown {{ service_type }}:{{service_type}} /opt/sonata/{{ service_type }}/service.jar
