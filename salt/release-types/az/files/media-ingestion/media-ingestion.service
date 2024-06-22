@@ -1,0 +1,11 @@
+[Unit]
+Description=Media ingestion
+After=syslog.target network.target
+
+[Service]
+User=media-ingestion
+ExecStart=/opt/sonata/media-ingestion/service.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

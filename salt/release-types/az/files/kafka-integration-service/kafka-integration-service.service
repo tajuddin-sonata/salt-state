@@ -1,0 +1,11 @@
+[Unit]
+Description=Kafka Integration Service
+After=syslog.target network.target
+
+[Service]
+User=kafak-integration-service
+ExecStart=/opt/sonata/kafak-integration-service/service.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
